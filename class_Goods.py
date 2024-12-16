@@ -15,4 +15,4 @@ good8=Goods("suv",3000,[15,10,2024])
 good9=Goods("choy",1000,[15,10,2024])
 good10=Goods("shokolad",12000,[12,10,2024])
 
-goods=[good1,good2,good3,good4,good5,good6,good7,good8,good9,good10]
+goods=[0,good1,good2,good3,good4,good5,good6,good7,good8,good9,good10]

@@ -4,6 +4,8 @@ from class_Market import supermarket1
 
 
 def Shop():
-    print("Mahsulot nomi  Narxi (so'm)  ")
-    for item in goods:
-        print(item.name)
+    # client=input()
+    print("No  Mahsulot nomi  Narxi (so'm)  Muddati")
+    for i in range(1,len(goods)):
+        print(f"{i}".ljust(3),f"{goods[i].name}".ljust(14), f"{goods[i].cost}".ljust(13),f"{(goods[i]).date[0]}.{goods[i].date[1]}.{goods[i].date[2]}")
+Shop()
