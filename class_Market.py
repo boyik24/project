@@ -3,6 +3,6 @@ class Market:
         self.title=title
         self.base=[]
         self.balance=0
-        self.history=[]
+        self.history={}
 
 supermarket1=Market("Supermarket")
