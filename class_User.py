@@ -9,7 +9,7 @@ class User:
         self.password=password
 
 user1=User("Ali",False,True,1111,971112233)
-user2=User("Baxrom",False,True,1112,971122233)
+user2=User("Baxrom",False,True,1112,971192233)
 user3=User("Said",False,True,1113,971132233)
 user4=User("Diyor",False,True,1114,971142233)
 admin=User("Ikromali",True,False,1115,971152233)
