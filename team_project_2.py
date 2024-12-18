@@ -101,8 +101,4 @@ def shop():
                 else:
                     print("savdo amalga oshirilmagan")
 
-
-
-
-
 shop()
