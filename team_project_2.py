@@ -52,8 +52,8 @@ def shop():
                                         (supermarket1.history[users[num].name]).update(users[num].karzinka)
                             else:
                                 print(f"{count} ta {goods[i].name} yo'q")
-                    status2=input("0.Savdoni tugatish 1.mahsulot sotib olish : ")
-                    if status2=="0":
+                    item=input("0.Savdoni tugatish 1.mahsulot sotib olish : ")
+                    if item=="0":
                         supermarket1.history[users[num].name]["total cost"]=total_cost
                         print(f"Jami {total_cost} so'm bo'ldi")
                         cost=total_cost
@@ -67,6 +67,8 @@ def shop():
                                 supermarket1.balance+=cost
                                 users[num].balans-=cost
                                 print(f"{total_cost} so'm pul yechib olindi")
+
+
                                 supermarket1.history[users[num].name]["debt"]=total_cost-cost
                                 if not total_cost==cost:
                                     print(f"{total_cost-cost} so'm qarz bo'ldiz")
@@ -83,8 +85,13 @@ def shop():
                                 status_bool = False
                                 phone_bool = True
                                 break
-            else:
-                print("bunday amal bajarishni iloji yo'q")
+            if status=="2":
+                while phone_bool:
+                    client_phone = input("Telefon raqami : ")
+                    for item in range(len(users)):
+                        if int(client_phone) == users[item].phone and int(client_phone) != users[0]:
+                            num = item  # new_client olmasdan shu n ni keyinchalk kliyent ning list dagi raqmidan ishlatiladi
+                            phone_bool = False
             if status == "2":
                 phone_bool = True
             else:
