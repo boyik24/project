@@ -27,20 +27,36 @@ def shop():
             if status=="1":
                 status_bool=True
                 tot_cost = 0
+                purchase_num = 0
                 while status_bool:
                     item=input("mahsulotning raqamini kiriting : ")
                     for i in range(len(goods)):
                         if i==int(item) and int(item)!=0:
                             count=input(f"qancha {goods[i].name} olmoqchisiz : ")
+                            cost_client=0
                             if int(count)<goods[i].count:
-                                goods[i].count-=1
+                                goods[i].count-=int(count)
                                 tot_cost+=goods[i].cost*int(count)
+                                cost_client+=goods[i].cost*int(count)
                                 print(f"{count} ta {goods[i].name} olindi -{tot_cost} so'm")
-                                # users[num].karzinka+=
+                                if int(count)!=0:
+                                    purchase_num+=1
+                                    users[num].karzinka[purchase_num]={
+                                        "good":goods[i].name,
+                                        "number of goods":int(count),
+                                        "cost":cost_client,
+                                    }
+                                    if len(supermarket1.history)==0:
+                                        supermarket1.history[users[num].name]=users[num].karzinka
+                                    else:
+                                        (supermarket1.history[users[num].name]).update(users[num].karzinka)
                             else:
                                 print(f"{count} ta {goods[i].name} yo'q")
                     status2=input("1. Savdoni tugatish : ")
                     if status2=="1":
+                        supermarket1.history[users[num].name]["total cost"]=tot_cost
+                        print(users[num].karzinka)
+                        print(supermarket1.history)
                         print(f"Jami {tot_cost} so'm pul bo'ldi")
                         cost=tot_cost
                         card_code_bool=True

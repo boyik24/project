@@ -4,7 +4,7 @@ class User:
         self.name=name
         self.is_admin =is_admin
         self.is_client =is_client
-        self.karzinka=[]
+        self.karzinka={}
         self.balans=10000
         self.password=password
 
