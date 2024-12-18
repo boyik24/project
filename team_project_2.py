@@ -13,7 +13,7 @@ def shop():
     phone_bool = True
     while True:
         while phone_bool:
-            client_phone = input("Kliyentning telefon raqami : ")
+            client_phone = input("Telefon raqami : ")
             for item in range(len(users)):
                 if int(client_phone)==users[item].phone and int(client_phone)!=users[0]:
                     global num
@@ -32,7 +32,7 @@ def shop():
                     item=input("mahsulotning raqamini kiriting : ")
                     for i in range(len(goods)):
                         if i==int(item) and int(item)!=0:
-                            count=input(f"qancha {goods[i].name} olmoqchisiz : ")
+                            count=input(f"qancha {goods[i].name} olmoqchisiz narxi:{goods[i].cost} : ")
                             cost_client=0
                             if int(count)<goods[i].count:
                                 goods[i].count-=int(count)
@@ -52,10 +52,10 @@ def shop():
                                         (supermarket1.history[users[num].name]).update(users[num].karzinka)
                             else:
                                 print(f"{count} ta {goods[i].name} yo'q")
-                    status2=input("0.Savdoni tugatish 1-10.mahsulot sotib olish : ")
+                    status2=input("0.Savdoni tugatish 1.mahsulot sotib olish : ")
                     if status2=="0":
                         supermarket1.history[users[num].name]["total cost"]=total_cost
-                        print(f"Jami {total_cost} so'm pul bo'ldi")
+                        print(f"Jami {total_cost} so'm bo'ldi")
                         cost=total_cost
                         card_code_bool=True
                         card_count=0
@@ -70,6 +70,7 @@ def shop():
                                 supermarket1.history[users[num].name]["debt"]=total_cost-cost
                                 if not total_cost==cost:
                                     print(f"{total_cost-cost} so'm qarz bo'ldiz")
+                                    print("klient yoki admin telefon raqamini kiriting ")
                                 status_bool=False
                                 phone_bool=True
                                 break
@@ -82,7 +83,9 @@ def shop():
                                 status_bool = False
                                 phone_bool = True
                                 break
-            elif status == "2":
+            else:
+                print("bunday amal bajarishni iloji yo'q")
+            if status == "2":
                 phone_bool = True
             else:
                 phone_bool = False
@@ -100,5 +103,7 @@ def shop():
                         print(item,item["good"],item["number of goods"],item["cost"],item["debt"])
                 else:
                     print("savdo amalga oshirilmagan")
-
+            elif status_admin=="3":
+                phone_bool=True
+                break
 shop()
