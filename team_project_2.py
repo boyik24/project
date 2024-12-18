@@ -94,11 +94,13 @@ def shop():
                     print(f"{i}".ljust(3), f"{goods[i].name}".ljust(14), f"{goods[i].cost}".ljust(13),
                           f"{(goods[i]).date[0]}.{goods[i].date[1]}.{goods[i].date[2]}")
             elif status_admin=="2":
-                print("Kliyent ismi  Mahsulot nomi  Soni  Narx  Qarz")
                 if len(supermarket1.history)!=0:
-                    for item in supermarket1.history:
-                        print(item,item["good"],item["number of goods"],item["cost"],item["debt"])
+                    print("Kliyent ismi  Mahsulot nomi  Soni  Narx  Qarz")
+                    print(supermarket1.history)
+                    # for item in supermarket1.history:
+                        # print(item,item["good"],item["number of goods"],item["cost"],item["debt"])
                 else:
                     print("savdo amalga oshirilmagan")
+
 
 shop()
