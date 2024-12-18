@@ -5,7 +5,7 @@ class User:
         self.is_admin =is_admin
         self.is_client =is_client
         self.karzinka={}
-        self.balans=10000
+        self.balans=151000
         self.password=password
 
 user1=User("Ali",False,True,1111,971112233)
