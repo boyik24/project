@@ -1,2 +1,2 @@
-class A:
-    pass
+class Korzinka:
+    def __init__(self,user,):

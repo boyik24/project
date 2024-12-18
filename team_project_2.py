@@ -26,7 +26,7 @@ def shop():
             status=input("1. mahsulot sotib olish : \n2. orqaga qaytish : ")
             if status=="1":
                 status_bool=True
-                tot_cost = 0
+                total_cost = 0
                 purchase_num = 0
                 while status_bool:
                     item=input("mahsulotning raqamini kiriting : ")
@@ -36,9 +36,9 @@ def shop():
                             cost_client=0
                             if int(count)<goods[i].count:
                                 goods[i].count-=int(count)
-                                tot_cost+=goods[i].cost*int(count)
+                                total_cost+=goods[i].cost*int(count)
                                 cost_client+=goods[i].cost*int(count)
-                                print(f"{count} ta {goods[i].name} olindi -{tot_cost} so'm")
+                                print(f"{count} ta {goods[i].name} olindi umumiy_narx:{total_cost} so'm")
                                 if int(count)!=0:
                                     purchase_num+=1
                                     users[num].karzinka[purchase_num]={
@@ -52,24 +52,24 @@ def shop():
                                         (supermarket1.history[users[num].name]).update(users[num].karzinka)
                             else:
                                 print(f"{count} ta {goods[i].name} yo'q")
-                    status2=input("1. Savdoni tugatish : ")
-                    if status2=="1":
-                        supermarket1.history[users[num].name]["total cost"]=tot_cost
-                        print(f"Jami {tot_cost} so'm pul bo'ldi")
-                        cost=tot_cost
+                    status2=input("0.Savdoni tugatish 1-10.mahsulot sotib olish : ")
+                    if status2=="0":
+                        supermarket1.history[users[num].name]["total cost"]=total_cost
+                        print(f"Jami {total_cost} so'm pul bo'ldi")
+                        cost=total_cost
                         card_code_bool=True
                         card_count=0
                         while card_code_bool:
                             card_code = input("kartani kodini kiriting : ")
                             if users[num].password==int(card_code):
-                                if tot_cost>users[num].balans:
+                                if total_cost>users[num].balans:
                                     cost=users[num].balans
                                 supermarket1.balance+=cost
                                 users[num].balans-=cost
-                                print(f"{tot_cost} so'm pul yechib olindi")
-                                supermarket1.history[users[num].name]["debt"]=tot_cost-cost
-                                if not tot_cost==cost:
-                                    print(f"{tot_cost-cost} so'm qarz bo'ldiz")
+                                print(f"{total_cost} so'm pul yechib olindi")
+                                supermarket1.history[users[num].name]["debt"]=total_cost-cost
+                                if not total_cost==cost:
+                                    print(f"{total_cost-cost} so'm qarz bo'ldiz")
                                 status_bool=False
                                 phone_bool=True
                                 break
