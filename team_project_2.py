@@ -23,7 +23,7 @@ def shop():
             print("No  Mahsulot nomi  Narxi (so'm)  Muddati")
             for i in range(1,len(goods)):
                 print(f"{i}".ljust(3),f"{goods[i].name}".ljust(14), f"{goods[i].cost}".ljust(13),f"{(goods[i]).date[0]}.{goods[i].date[1]}.{goods[i].date[2]}")
-            status=input("1. mahsulot sotib olish : /n2. orqaga qaytish")
+            status=input("1. mahsulot sotib olish : \n2. orqaga qaytish : ")
             if status=="1":
                 status_bool=True
                 tot_cost = 0
@@ -55,8 +55,6 @@ def shop():
                     status2=input("1. Savdoni tugatish : ")
                     if status2=="1":
                         supermarket1.history[users[num].name]["total cost"]=tot_cost
-                        print(users[num].karzinka)
-                        print(supermarket1.history)
                         print(f"Jami {tot_cost} so'm pul bo'ldi")
                         cost=tot_cost
                         card_code_bool=True
@@ -69,6 +67,7 @@ def shop():
                                 supermarket1.balance+=cost
                                 users[num].balans-=cost
                                 print(f"{tot_cost} so'm pul yechib olindi")
+                                supermarket1.history[users[num].name]["debt"]=tot_cost-cost
                                 if not tot_cost==cost:
                                     print(f"{tot_cost-cost} so'm qarz bo'ldiz")
                                 status_bool=False
@@ -88,7 +87,20 @@ def shop():
             else:
                 phone_bool = False
         elif num==0:
-            print("qilinmagan")
+            status_admin=input("1. ro'yxat :\n2. kliyentlar tarixi : \n3. Orgaga")
+            if status_admin=="1":
+                print("No  Mahsulot nomi  Narxi (so'm)  Muddati")
+                for i in range(1, len(goods)):
+                    print(f"{i}".ljust(3), f"{goods[i].name}".ljust(14), f"{goods[i].cost}".ljust(13),
+                          f"{(goods[i]).date[0]}.{goods[i].date[1]}.{goods[i].date[2]}")
+            elif status_admin=="2":
+                print("Kliyent ismi  Mahsulot nomi  Soni  Narx  Qarz")
+                if len(supermarket1.history)!=0:
+                    for item in supermarket1.history:
+                        print(item,item["good"],item["number of goods"],item["cost"],item["debt"])
+                else:
+                    print("savdo amalga oshirilmagan")
+
 
 
 
