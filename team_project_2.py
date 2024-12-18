@@ -96,7 +96,9 @@ def shop():
                 phone_bool = True
             else:
                 phone_bool = False
-        elif num==0:
+            break
+
+        if num==0:
             status_admin=input("1. ro'yxat :\n2. kliyentlar tarixi : \n3. Orgaga")
             if status_admin=="1":
                 print("No  Mahsulot nomi  Narxi (so'm)  Muddati")
