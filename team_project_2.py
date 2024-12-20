@@ -71,6 +71,7 @@ def shop():
                                         (supermarket1.history[users[num].name]).update(users[num].karzinka)
                             else:
                                 print(f"{count} ta {goods[i].name} yo'q")
+
                     item_bool=False
                     item=input("0.Savdoni tugatish :\n1-10.mahsulot sotib olish : ")
                     if item=="0":
